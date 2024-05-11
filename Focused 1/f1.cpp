@@ -15,10 +15,9 @@ int main()
 {
 	FlightInfo flights[10] = {};
 
-
 	for (int i = 0; i < 10; i++)
 	{
-		printf("Flight #%d/10\n", i + 1);
+		printf("Please input flight info #%d/10\n", i + 1);
 		printf("Destination:");
 		char buffer[30] = "";
 		fgets(buffer, 30, stdin);
@@ -32,8 +31,11 @@ int main()
 		sscanf_s(buffer, "%[^\n]s", &date, 30);
 
 		fillFlightInfo(&flights[i], destination, date);
+
+		printf("\n");
 	}
 
+	printf("\n");
 	printFlightInfo(flights, 10);
 
 	return 0;
@@ -51,9 +53,11 @@ void fillFlightInfo(FlightInfo* flight, const char* destination, const char* dat
 
 void printFlightInfo(FlightInfo* flights, int size)
 {
+	printf("Flight information:\n");
+
 	for (int i = 0; i < size; i++)
 	{
-		printf("Destination: %35s Date: %35s\n", flights[i].destination, flights[i].date);
+		printf("%-35s%-35s\n", flights[i].destination, flights[i].date);
 	}
 }
 
