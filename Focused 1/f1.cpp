@@ -38,6 +38,12 @@ int main()
 	printf("\n");
 	printFlightInfo(flights, 10);
 
+	for (int i = 0; i < 10; i++)
+	{
+		free(flights[i].destination);
+		free(flights[i].date);
+	}
+
 	return 0;
 }
 
