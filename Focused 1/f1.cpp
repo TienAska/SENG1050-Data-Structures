@@ -22,13 +22,13 @@ int main()
 		char buffer[30] = "";
 		fgets(buffer, 30, stdin);
 		char destination[30] = "";
-		sscanf_s(buffer, "%[^\n]s", &destination, 30);
+		sscanf_s(buffer, "%[^\n]s", destination, 30);
 
 
 		printf("Date:");
 		fgets(buffer, 30, stdin);
 		char date[30] = "";
-		sscanf_s(buffer, "%[^\n]s", &date, 30);
+		sscanf_s(buffer, "%[^\n]s", date, 30);
 
 		fillFlightInfo(&flights[i], destination, date);
 
