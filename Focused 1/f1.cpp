@@ -41,7 +41,9 @@ int main()
 	for (int i = 0; i < 10; i++)
 	{
 		free(flights[i].destination);
+		flights[i].destination = NULL;
 		free(flights[i].date);
+		flights[i].date = NULL;
 	}
 
 	return 0;
@@ -50,10 +52,10 @@ int main()
 
 void fillFlightInfo(FlightInfo* flight, const char* destination, const char* date)
 {
-	flight->destination = static_cast<char*>(malloc(strlen(destination) + 1));
+	flight->destination = (char*)malloc(strlen(destination) + 1);
 	strcpy_s(flight->destination, strlen(destination) + 1, destination);
 
-	flight->date = static_cast<char*>(malloc(strlen(date) + 1));
+	flight->date = (char*)malloc(strlen(date) + 1);
 	strcpy_s(flight->date, strlen(date) + 1, date);
 }
 
