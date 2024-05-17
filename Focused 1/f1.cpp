@@ -1,3 +1,14 @@
+/*
+* FILE : f1.cpp
+* PROJECT : SENG1050 - FOCUSED ASSIGNMENT 1
+* PROGRAMMER : Tian Yang
+* FIRST VERSION : 2024-05-11
+* DESCRIPTION :
+* This program takes in information about flights and stores the destination and
+* date in an array of structs to be displayed. Dynamic memory allocation is used 
+* to store the strings in the struct.
+*/
+
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -49,7 +60,16 @@ int main()
 	return 0;
 }
 
-
+/*
+Function: fillFlightInfo()
+Parameters: 
+	FlightInfo* flight: 
+	const char* destination:
+	const char* date:
+Description: This function takes a pointer to a struct FlightInfo and the
+destination and date information as parameters and fills in the struct's fields.
+Return value: void
+*/
 void fillFlightInfo(FlightInfo* flight, const char* destination, const char* date)
 {
 	flight->destination = (char*)malloc(strlen(destination) + 1);
@@ -59,9 +79,19 @@ void fillFlightInfo(FlightInfo* flight, const char* destination, const char* dat
 	strcpy_s(flight->date, strlen(date) + 1, date);
 }
 
+/*
+Function: printFlightInfo()
+Parameters:
+	FlightInfo* flight:
+	int size:
+Description: This function takes the array of structs as a parameter and
+prints all of the information contained within the array in a nicely-formatted
+fashion, one flight per line.
+Return value: void
+*/
 void printFlightInfo(FlightInfo* flights, int size)
 {
-	printf("Flight information:\n");
+	printf("%-35s%-35s\n\n", "Destination:", "Date:");
 
 	for (int i = 0; i < size; i++)
 	{
